@@ -1,0 +1,78 @@
+<html>
+<!-- SAR: This pages purpose is to create a new user by requesting and taking input information and converting it to an array
+     that stores the user data in localStorage-->
+<head>
+    <title> Login and Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/registration.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/general.css">
+<body>
+
+<!-- SAR: Here we create the login form. It has input fields for the required information that we need from a new user.
+     Each field is set as required. The password field also has certain parameters which the user must abide by.-->
+<div class="login-page">
+    <div class ="form">
+    <form class="register-form">
+        <input type="text" id="fullname" placeholder="full name" title="Please enter your full name" required>
+
+        <input type="date" id="birthday" placeholder="birthday" title="Please enter your birthday" required>
+
+        <input type="email" id="email" placeholder="email" title="Please enter your email" required>
+
+        <input type="text" id="userName" placeholder="username" title="Please enter your username" required>
+
+        <input type="password" id="psw" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+               title="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+
+        <input type="number" id="teleNmb" placeholder="contact number" title="Please enter you contact number" required>
+
+        <input type="password" id="confirm_password" placeholder="repeat password" title="Please repeat your password" required>
+
+        <input type="submit" value="CREATE ACCOUNT" onclick="UserCreationControl()">
+
+       <!-- <p class="message">Already Registered? <a href="#">Login</a></p> -->
+    </form>
+
+<!--
+    <form class="login-form">
+        <input type="text" id="usernameInput" placeholder="username">
+        <input type="password" id="passwordInput" placeholder="password">
+        <input type="submit" value="LOGIN" id="login">
+        <p class="message">Not Registered? <a href="#">Register</a>
+-->
+
+    </form>
+
+    </div>
+  <!-- SAR: Here we create the popup message that shows the user what requirements are left for their chosen password.
+   Each class is given an id and set as invalid. This "invalid" tag is changed in the registration.js if the user
+   meets the requirements -->
+    <div id="message">
+        <h3>Password must contain the following:</h3>
+        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+        <p id="number" class="invalid">A <b>number</b></p>
+        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+    </div>
+
+</div>
+
+<!-- SAR: Here we call the script code from jquery. jQuery is a JavaScript library designed to simplify HTML and it
+ allows us to animate with ease the transition between a sign-up form and a log-in form when the user clicks the link
+<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+
+ In this script we code the transition animation, so that when clicking the message "a" (which in this case is either
+ "Already Registered?" or "Not Registered") it will animate with a toggle function
+<script>
+    $('.message a').click(function(){
+    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+    });
+</script> -->
+
+
+</body>
+<script src="../Javascript/userClass.js"></script>
+<script src="../Javascript/userList.js"></script>
+<script src="../Javascript/login.js"></script>
+<script src="../Javascript/registration.js"></script>
+
+</html>
