@@ -10,38 +10,32 @@
 <!-- SAR: Here we create the login form. It has input fields for the required information that we need from a new user.
      Each field is set as required. The password field also has certain parameters which the user must abide by.-->
 <div class="login-page">
-    <div class ="form">
-    <form class="register-form">
-        <input type="text" id="fullname" placeholder="full name" title="Please enter your full name" required>
-
-        <input type="date" id="birthday" placeholder="birthday" title="Please enter your birthday" required>
-
-        <input type="email" id="email" placeholder="email" title="Please enter your email" required>
-
-        <input type="text" id="userName" placeholder="username" title="Please enter your username" required>
-
-        <input type="password" id="psw" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-               title="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-
-        <input type="number" id="teleNmb" placeholder="contact number" title="Please enter you contact number" required>
-
-        <input type="password" id="confirm_password" placeholder="repeat password" title="Please repeat your password" required>
-
-        <input type="submit" value="CREATE ACCOUNT" onclick="UserCreationControl()">
-
-       <!-- <p class="message">Already Registered? <a href="#">Login</a></p> -->
-    </form>
-
-<!--
-    <form class="login-form">
-        <input type="text" id="usernameInput" placeholder="username">
-        <input type="password" id="passwordInput" placeholder="password">
-        <input type="submit" value="LOGIN" id="login">
-        <p class="message">Not Registered? <a href="#">Register</a>
--->
-
-    </form>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <!-- for browser to know tha tthe form contains mutli media. will encripy multie media and send to server -->
+                <form action="/users/register" method="POST" enctype="multipart/form-data">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Username</label>
+                            <input type="text" class="form-control" placeholder="Username"
+                                   id="username" name="username">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Password</label>
+                            <input type="text" class="form-control" placeholder="password"
+                                   id="password" name="password">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
   <!-- SAR: Here we create the popup message that shows the user what requirements are left for their chosen password.
    Each class is given an id and set as invalid. This "invalid" tag is changed in the registration.js if the user
