@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 //const BlogPost = require('./models/BlogPost.js');
 const fileUpload = require('express-fileupload');
+const expressSession = require('express-session');
 
 app.use(fileUpload());
 
@@ -18,11 +19,17 @@ app.set('view engine','ejs');
 
 app.use(express.static('public'));
 
+app.use(expressSession({
+    secret: 'leeroy jenkins'
+}));
+
 app.listen(4000, ()=>{
     console.log('App listening on port 4000 ...')    
 });
 
 const validateMiddleWare = require("./middleware/validationMiddleware");
+const authMiddleware = require('./middleware/authMiddleware');
+
 
 app.use('/posts/store',validateMiddleWare);
 
